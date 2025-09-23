@@ -12,4 +12,5 @@ body{
 }
 button {
     border-radius: 3px;
+    background-image: linear-gradient(90deg,red,orange,yellow,green,cyan,blue,purple);
 }
