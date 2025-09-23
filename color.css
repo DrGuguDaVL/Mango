@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+h1{
+    font-size:16px;
+}
 body{
     background-image:linear-gradient(red,orange,yellow,green,cyan,blue,purple);
     color:color-mix(in srgb-linear, red 50%, blue 50%);
