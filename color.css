@@ -3,7 +3,7 @@ h1{
     font-size:16px;
 }
 body{
-    background-image:linear-gradient(red,orange,yellow,green,cyan,blue,purple);
+    background-image:linear-gradient(90deg,red,orange,yellow,green,cyan,blue,purple);
     color:color-mix(in srgb-linear, red 50%, blue 50%);
 }
 .wrapper {
