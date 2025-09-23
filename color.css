@@ -1,5 +1,5 @@
 body{
-    background-color: aquamarine;
+    background-image:linear-gradient(red,orange,yellow,green,cyan,blue,purple);
     color:color-mix(in srgb-linear, red 50%, blue 50%);
 }
 .wrapper {
