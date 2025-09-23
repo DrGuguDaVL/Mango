@@ -10,3 +10,6 @@ body{
  align-items:center;
  size:3cm;
 }
+button {
+    border-radius: 3px;
+}
