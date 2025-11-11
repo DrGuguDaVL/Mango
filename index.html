@@ -1,22 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <h1>Rainbow Gradient Generator</h1>
     <meta charset="UTF-8">
-    <title>Gugs labs</title>
-    <link rel="stylesheet" href="color.css">
-    <button id="Radial">Radial</button>
-    <button id="Linear">Linear</button>
-    <button id="Conic">Conic</button>
-    <button id="Reflected">Reflected</button>
-    <button id="Diamond">Diamond</button>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Gradient Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: background 0.5s ease;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            text-align: left;
+        }
+        
+        #colorInput {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        #colorInput:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+        
+        .scheme-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .scheme-btn {
+            padding: 12px 15px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            flex: 1;
+            min-width: 110px;
+        }
+        
+        .scheme-btn:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        .scheme-btn.active {
+            background-color: #4a90e2;
+            color: white;
+            box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+        }
+        
+        .preview-container {
+            margin-bottom: 25px;
+        }
+        
+        .preview-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            text-align: left;
+        }
+        
+        .preview {
+            height: 150px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            transition: all 0.5s ease;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+        
+        .code-output {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+            margin-top: 10px;
+            min-height: 60px;
+        }
+        
+        .examples {
+            margin-top: 25px;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .examples h3 {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .examples ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .examples li {
+            padding: 5px 0;
+            color: #666;
+        }
+        
+        .examples code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        
+        footer {
+            margin-top: 30px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-<div class="wrapper">
-  <input type="text" id="colorInput" placeholder="Type one or more colors...">
-</div>
+    <div class="container">
+        <h1>Color Gradient Generator</h1>
+        <p class="description">Enter colors (separated by spaces or commas) and select a color scheme to generate beautiful gradients.</p>
+        
+        <div class="input-group">
+            <label for="colorInput">Enter Colors:</label>
+            <input type="text" id="colorInput" placeholder="e.g., red, blue, green or #ff0000 #00ff00 #0000ff">
+        </div>
+        
+        <div class="scheme-buttons">
+            <button class="scheme-btn active" id="linearBtn">Linear</button>
+            <button class="scheme-btn" id="radialBtn">Radial</button>
+            <button class="scheme-btn" id="conicBtn">Conic</button>
+            <button class="scheme-btn" id="diamondBtn">Diamond</button>
+            <button class="scheme-btn" id="reflectedBtn">Reflected</button>
+        </div>
+        
+        <div class="preview-container">
+            <label class="preview-label">Preview:</label>
+            <div class="preview" id="gradientPreview"></div>
+        </div>
+        
+        <div>
+            <label class="preview-label">CSS Code:</label>
+            <div class="code-output" id="cssCode">
+                /* CSS code will appear here */
+            </div>
+        </div>
+        
+        <div class="examples">
+            <h3>Examples:</h3>
+            <ul>
+                <li><code>red, blue</code> - Two color gradient</li>
+                <li><code>#ff0000 #00ff00 #0000ff</code> - Three color gradient</li>
+                <li><code>purple orange</code> - Named colors</li>
+                <li><code>rgba(255,0,0,0.5) rgba(0,255,0,0.5)</code> - Colors with transparency</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        Try different color schemes and combinations!
+    </footer>
 
-
-<script src="file.js"></script>
+    <script>
+        // Get DOM elements
+        const colorInput = document.getElementById('colorInput');
+        const gradientPreview = document.getElementById('gradientPreview');
+        const cssCode = document.getElementById('cssCode');
+        
+        // Get all scheme buttons
+        const linearBtn = document.getElementById('linearBtn');
+        const radialBtn = document.getElementById('radialBtn');
+        const conicBtn = document.getElementById('conicBtn');
+        const diamondBtn = document.getElementById('diamondBtn');
+        const reflectedBtn = document.getElementById('reflectedBtn');
+        
+        // Store current scheme
+        let currentScheme = 'linear';
+        
+        // Add event listeners to buttons
+        linearBtn.addEventListener('click', () => setActiveScheme('linear'));
+        radialBtn.addEventListener('click', () => setActiveScheme('radial'));
+        conicBtn.addEventListener('click', () => setActiveScheme('conic'));
+        diamondBtn.addEventListener('click', () => setActiveScheme('diamond'));
+        reflectedBtn.addEventListener('click', () => setActiveScheme('reflected'));
+        
+        // Update gradient on input
+        colorInput.addEventListener('input', updateGradient);
+        
+        // Function to set active scheme
+        function setActiveScheme(scheme) {
+            currentScheme = scheme;
+            
+            // Remove active class from all buttons
+            const buttons = [linearBtn, radialBtn, conicBtn, diamondBtn, reflectedBtn];
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            switch(scheme) {
+                case 'linear':
+                    linearBtn.classList.add('active');
+                    break;
+                case 'radial':
+                    radialBtn.classList.add('active');
+                    break;
+                case 'conic':
+                    conicBtn.classList.add('active');
+                    break;
+                case 'diamond':
+                    diamondBtn.classList.add('active');
+                    break;
+                case 'reflected':
+                    reflectedBtn.classList.add('active');
+                    break;
+            }
+            
+            // Update the gradient
+            updateGradient();
+        }
+        
+        // Function to update gradient based on input and selected scheme
+        function updateGradient() {
+            const value = colorInput.value.trim();
+            const colors = value.split(/[\s,]+/).filter(c => c);
+            
+            if (colors.length === 0) {
+                gradientPreview.style.background = '';
+                cssCode.textContent = '/* Enter colors to see the gradient */';
+                document.body.style.background = 'linear-gradient(to right, #ff7e5f, #feb47b)';
+                return;
+            }
+            
+            let gradientCSS = '';
+            
+            if (colors.length === 1) {
+                // Single color
+                gradientPreview.style.background = colors[0];
+                gradientCSS = `background: ${colors[0]};`;
+            } else {
+                // Multiple colors - apply selected scheme
+                switch(currentScheme) {
+                    case 'linear':
+                        gradientCSS = `linear-gradient(to right, ${colors.join(', ')})`;
+                        break;
+                    case 'radial':
+                        gradientCSS = `radial-gradient(circle, ${colors.join(', ')})`;
+                        break;
+                    case 'conic':
+                        gradientCSS = `conic-gradient(from 90deg, ${colors.join(', ')})`;
+                        break;
+                    case 'diamond':
+                        gradientCSS = `linear-gradient(45deg, ${colors.join(', ')})`;
+                        break;
+                    case 'reflected':
+                        const reflectedColors = [...colors, ...colors.slice().reverse()];
+                        gradientCSS = `linear-gradient(to right, ${reflectedColors.join(', ')})`;
+                        break;
+                }
+                
+                gradientPreview.style.background = gradientCSS;
+                gradientCSS = `background: ${gradientCSS};`;
+            }
+            
+            // Update CSS code display
+            cssCode.textContent = gradientCSS;
+            
+            // Update body background for full effect
+            if (colors.length > 1) {
+                document.body.style.background = gradientCSS;
+            } else if (colors.length === 1) {
+                document.body.style.background = colors[0];
+            }
+        }
+        
+        // Initialize with example
+        colorInput.value = 'red, blue, green';
+        updateGradient();
+    </script>
 </body>
 </html>
