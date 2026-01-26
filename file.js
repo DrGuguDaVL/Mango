@@ -65,10 +65,6 @@ const ptToCssColors = {
     "transparente": "transparent"
 };
 
-function addExtraColors(extraColors) {
-    Object.assign(ptToCssColors, extraColors);
-}
-
 function normalizeColorName(str) {
     return str
         .toLowerCase()
@@ -91,7 +87,6 @@ function translatePortugueseColors(input) {
 const colorInput = document.getElementById('colorInput');
 const gradientPreview = document.getElementById('gradientPreview');
 const cssCode = document.getElementById('cssCode');
-addExtraColors(extraPtToCssColors);
 // Get all scheme buttons
 const linearBtn = document.getElementById('linearBtn');
 const radialBtn = document.getElementById('radialBtn');
