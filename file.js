@@ -61,8 +61,9 @@ const ptToCssColors = {
     "cinza medio": "darkgray",
     "cinza médio": "darkgray",
     "cinza chumbo": "dimgray",
-
-
+    "peach": "#FFD3AC",
+    "pessego":"#FFD3AC",
+    "pêssego":"#FFD3AC",
     "transparente": "transparent"
 };
 
