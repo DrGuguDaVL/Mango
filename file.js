@@ -16,6 +16,22 @@ const cssColorNames = [
     "sandybrown", "seashell", "sienna", "silver", "skyblue", "slateblue", "slategray", "snow", "springgreen", "steelblue",
     "tan", "teal", "thistle", "tomato", "turquoise", "violet", "wheat", "white", "whitesmoke", "yellow", "yellowgreen"
 ];
+function fetchColorFromAPI(colorName) {
+    const apiUrl = `https://api.color.pizza/v1/${colorName}`;
+    
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.colors.length > 0) {
+                return data.colors[0].hex;
+            }
+            return colorName; // If the color isn't found, return it as is
+        })
+        .catch(error => {
+            console.error("Error fetching color:", error);
+            return colorName;
+        });
+}
 
 const cssColorMap = cssColorNames.reduce((acc, color) => {
     const hex = tinycolor(color).toHexString(); // Convert the color name to hex using tinycolor
