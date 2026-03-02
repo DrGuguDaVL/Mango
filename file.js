@@ -1,69 +1,37 @@
-// ===== PORTUGUESE → CSS COLOR TRANSLATION (NOVO CÓDIGO) =====
-const ptToCssColors = {
-    "preto": "black",
-    "branco": "white",
-    "vermelho": "red",
-    "azul": "blue",
-    "verde": "green",
-    "amarelo": "yellow",
-    "roxo": "purple",
-    "rosa": "pink",
-    "laranja": "orange",
-    "marrom": "brown",
-    "cinza": "gray",
-    "cinzento": "gray",
+const cssColorNames = [
+    "aliceblue", "antiquewhite", "aqua", "aquamarine", "azure", "beige", "bisque", "black", "blanchedalmond",
+    "blue", "blueviolet", "brown", "burlywood", "cadetblue", "chartreuse", "chocolate", "coral", "cornflowerblue",
+    "cornsilk", "crimson", "cyan", "darkblue", "darkcyan", "darkgoldenrod", "darkgray", "darkgreen", "darkkhaki",
+    "darkmagenta", "darkolivegreen", "darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen", "darkslateblue",
+    "darkslategray", "darkturquoise", "darkviolet", "deeppink", "deepskyblue", "dimgray", "dodgerblue", "firebrick",
+    "floralwhite", "forestgreen", "fuchsia", "gainsboro", "ghostwhite", "gold", "goldenrod", "gray", "green",
+    "greenyellow", "honeydew", "hotpink", "indianred", "indigo", "ivory", "khaki", "lavender", "lavenderblush",
+    "lawngreen", "lemonchiffon", "lightblue", "lightcoral", "lightcyan", "lightgoldenrodyellow", "lightgreen", 
+    "lightgray", "lightpink", "lightsalmon", "lightseagreen", "lightskyblue", "lightslategray", "lightsteelblue", 
+    "lime", "limegreen", "linen", "magenta", "maroon", "mediumaquamarine", "mediumblue", "mediumorchid", "mediumpurple", 
+    "mediumseagreen", "mediumslateblue", "mediumspringgreen", "mediumturquoise", "mediumvioletred", "midnightblue",
+    "mintcream", "mistyrose", "moccasin", "navajowhite", "navy", "oldlace", "olive", "olivedrab", "orange", "orangered",
+    "orchid", "palegoldenrod", "palegreen", "paleturquoise", "palevioletred", "papayawhip", "peachpuff", "periwinkle",
+    "pink", "plum", "powderblue", "purple", "rebeccapurple", "red", "rosybrown", "royalblue", "saddlebrown", "salmon",
+    "sandybrown", "seashell", "sienna", "silver", "skyblue", "slateblue", "slategray", "snow", "springgreen", "steelblue",
+    "tan", "teal", "thistle", "tomato", "turquoise", "violet", "wheat", "white", "whitesmoke", "yellow", "yellowgreen"
+];
 
-    "azul claro": "lightblue",
-    "verde claro": "lightgreen",
-    "cinza claro": "lightgray",
-    "rosa claro": "lightpink",
-    "amarelo claro": "lightyellow",
-    "ciano claro": "lightcyan",
+const cssColorMap = cssColorNames.reduce((acc, color) => {
+    const hex = tinycolor(color).toHexString(); // Convert the color name to hex using tinycolor
+    acc[color] = hex;
+    return acc;
+}, {});
 
-    "azul escuro": "darkblue",
-    "verde escuro": "darkgreen",
-    "cinza escuro": "darkgray",
-    "vermelho escuro": "darkred",
-    "roxo escuro": "indigo",
-
-    "agua": "aqua",
-    "água": "aqua",
-    "ciano": "cyan",
-    "magenta": "magenta",
-    "fucsia": "fuchsia",
-    "fúcsia": "fuchsia",
-    "lima": "lime",
-    "oliva": "olive",
-    "navy": "navy",
-    "teal": "teal",
-    "marinho": "navy",
-    "turquesa": "turquoise",
-    "violeta": "violet",
-    "indigo": "indigo",
-    "índigo": "indigo",
-    "ouro": "gold",
-    "dourado": "gold",
-    "prata": "silver",
-    "bege": "beige",
-    "coral": "coral",
-    "salmao": "salmon",
-    "salmão": "salmon",
-    "salmao claro": "lightsalmon",
-    "chocolate": "chocolate",
-    "ameixa": "plum",
-    "orquidea": "orchid",
-    "orquídea": "orchid",
-    "ceu": "skyblue",
-    "céu": "skyblue",
-    "azul ceu": "skyblue",
-    "azul céu": "skyblue",
-
-    "cinza medio": "darkgray",
-    "cinza médio": "darkgray",
-    "cinza chumbo": "dimgray",
-
-    "transparente": "transparent"
-};
+function translateEveryColor(input) {
+    return input
+        .split(/[\s,]+/)
+        .map(color => {
+            const normalized = normalizeColorName(color);
+            return cssColorMap[normalized] || color; // Use the dynamic map here
+        })
+        .join(", ");
+}
 
 function normalizeColorName(str) {
     return str
