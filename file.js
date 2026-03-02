@@ -56,10 +56,12 @@ const ptToCssColors = {
     "céu": "skyblue",
     "azul ceu": "skyblue",
     "azul céu": "skyblue",
-
+    "pervinca": "blueviolet",
+    "periwinkle": "blueviolet",
     "cinza medio": "darkgray",
     "cinza médio": "darkgray",
     "cinza chumbo": "dimgray",
+
 
     "transparente": "transparent"
 };
