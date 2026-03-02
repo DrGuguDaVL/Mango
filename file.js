@@ -61,29 +61,8 @@ const ptToCssColors = {
     "cinza médio": "darkgray",
     "cinza chumbo": "dimgray",
 
-    "transparente": "transparent",
-
-    // NEW ENTRY FOR PERIWINKLE, PEACH, AND MINT
-    "periwinkle": "periwinkle", // Keep it as-is, we'll convert this later dynamically
-    "peach": "peachpuff",       // Peach is usually "peachpuff" in CSS
-    "mint": "mintcream"         // Mint is typically "mintcream" in CSS
+    "transparente": "transparent"
 };
-
-const cssColorMap = cssColorNames.reduce((acc, color) => {
-    const hex = tinycolor(color).toHexString(); // Convert the color name to hex using tinycolor
-    acc[color] = hex;
-    return acc;
-}, {});
-
-function translateEveryColor(input) {
-    return input
-        .split(/[\s,]+/)
-        .map(color => {
-            const normalized = normalizeColorName(color);
-            return cssColorMap[normalized] || color; // Use the dynamic map here
-        })
-        .join(", ");
-}
 
 function normalizeColorName(str) {
     return str
