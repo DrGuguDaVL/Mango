@@ -56,15 +56,22 @@ const ptToCssColors = {
     "céu": "skyblue",
     "azul ceu": "skyblue",
     "azul céu": "skyblue",
-    "pervinca": "blueviolet",
-    "periwinkle": "blueviolet",
+    "pervinca": "#CCCCFF",
+    "periwinkle": "#CCCCFF",
     "cinza medio": "darkgray",
     "cinza médio": "darkgray",
     "cinza chumbo": "dimgray",
     "peach": "#FFD3AC",
     "pessego":"#FFD3AC",
     "pêssego":"#FFD3AC",
-    "transparente": "transparent"
+    "transparente": "transparent",
+    "mint": "#98FB98",
+    "menta": "#98FB98",
+    "bronze": "#CD7F32",
+    "platina": "#E5E4E2",
+    "platinum": "#E5E4E2",
+    "burgundy": "#800020",
+    "borgonha": "#800020"
 };
 
 function normalizeColorName(str) {
