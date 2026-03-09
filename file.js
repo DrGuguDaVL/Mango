@@ -11,7 +11,7 @@ const ptToCssColors = {
     "marrom": "brown",
     "cinza": "gray",
     "cinzento": "gray",
-
+    
     "azul claro": "lightblue",
     "verde claro": "lightgreen",
     "cinza claro": "lightgray",
@@ -61,6 +61,9 @@ const ptToCssColors = {
     "cinza medio": "darkgray",
     "cinza médio": "darkgray",
     "cinza chumbo": "dimgray",
+    "amber": "#FFBF00",
+    "âmbar": "#FFBF00",
+    "ambar": "#FFBF00",
     "peach": "#FFD3AC",
     "pessego":"#FFD3AC",
     "pêssego":"#FFD3AC",
