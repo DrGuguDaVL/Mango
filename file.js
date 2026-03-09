@@ -29,6 +29,8 @@ const ptToCssColors = {
     "água": "aqua",
     "ciano": "cyan",
     "magenta": "magenta",
+    "rosa": "#FF007F",
+    "rose": "#FF007F",
     "fucsia": "fuchsia",
     "fúcsia": "fuchsia",
     "lima": "lime",
