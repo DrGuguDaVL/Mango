@@ -12,6 +12,8 @@ const ptToCssColors = {
     "cinza": "gray",
     "cinzento": "gray",
     "forest": "forestgreen",
+    "Azure": "#007FFF",
+    "Lavender":"#C7A0CB",
     "slate":"#708090",
     "ginger":"#e75304",
     "verdant":"#226C3B",
