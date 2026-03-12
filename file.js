@@ -65,6 +65,7 @@ const ptToCssColors = {
     "darklime":"#84B701",
     "magenta escuro":"#8B008B",
     "darkmagenta":"#8B008B",
+    "darkbrown": "#5C4033",
 
 
     "agua": "aqua",
