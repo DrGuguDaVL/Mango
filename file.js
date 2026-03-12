@@ -12,8 +12,8 @@ const ptToCssColors = {
     "cinza": "gray",
     "cinzento": "gray",
     "forest": "forestgreen",
-    "Azurey": "#007FFF",
-    "Lavendery":"#C7A0CB",
+    "Azur": "#007FFF",
+    "Lavend":"#C7A0CB",
     "slate":"#708090",
     "ginger":"#e75304",
     "verdant":"#226C3B",
@@ -42,6 +42,8 @@ const ptToCssColors = {
     "ciano claro": "lightcyan",
     "lightlime":"#b9ff66",
     "limão claro": "#b9ff66",
+    "lightmagenta": "#FF80FF",
+    "lightbrown": "#bc9e82",
 
 
     "azul escuro": "darkblue",
