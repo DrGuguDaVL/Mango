@@ -40,6 +40,9 @@ const ptToCssColors = {
     "vermelho claro":"#FF474c",
     "amarelo claro": "lightyellow",
     "ciano claro": "lightcyan",
+    "lightlime":"#b9ff66",
+    "limão claro": "#b9ff66",
+
 
     "azul escuro": "darkblue",
     "verde escuro": "darkgreen",
