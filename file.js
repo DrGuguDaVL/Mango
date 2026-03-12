@@ -12,7 +12,7 @@ const ptToCssColors = {
     "cinza": "gray",
     "cinzento": "gray",
     "forest": "forestgreen",
-    "Bluey": "#007FFF",
+    "Bloo": "dodgerblue",
     "Pourple":"#C7A0CB",
     "slate":"#708090",
     "ginger":"#e75304",
