@@ -114,6 +114,7 @@ const ptToCssColors = {
     "pêssego":"#FFD3AC",
     "transparente": "transparent",
     "mintgreen": "#00FF7F",
+    "cerulean": "#2a52be",
     "mint": "#98FB98",
     "menta": "#98FB98",
     "bronze": "#CD7F32",
