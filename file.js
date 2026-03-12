@@ -49,6 +49,18 @@ const ptToCssColors = {
     "darkpurple": "#341539",
     "darkorange":"#C76E00",
     "laranja claro":"#C76E00",
+    "darkyellow":"#BA8E23",
+    "amarelo escuro":"#BA8E23",
+    "ciano escuro":"#008B8B",
+    "darkcyan":"#008B8B",
+    "darkpink":"#C11C84",
+    "rosa escuro":"#C11C84",
+    "limao escuro":"#84B701",
+    "limao escuro":"#84B701",
+    "darklime":"#84B701",
+    "magenta escuro":"#8B008B",
+    "darkmagenta":"#8B008B",
+
 
     "agua": "aqua",
     "água": "aqua",
