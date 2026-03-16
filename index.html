@@ -2,55 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Gradient Generator</title>
-    <link rel="stylesheet" href="color.css">
+    <title>Universal Gradient Generator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Color Gradient Generator</h1>
-        <p class="description">Enter colors (separated by spaces or commas) and select a color scheme to generate beautiful gradients.</p>
-        
-        <div class="input-group">
-            <label for="colorInput">Enter Colors:</label>
-            <input type="text" id="colorInput" placeholder="e.g., red, blue, green or #ff0000 #00ff00 #0000ff">
-        </div>
-        
-        <div class="scheme-buttons">
-            <button class="scheme-btn active" id="linearBtn">Linear</button>
-            <button class="scheme-btn" id="radialBtn">Radial</button>
-            <button class="scheme-btn" id="conicBtn">Conic</button>
-            <button class="scheme-btn" id="diamondBtn">Diamond</button>
-            <button class="scheme-btn" id="reflectedBtn">Reflected</button>
-        </div>
-        
-        <div class="preview-container">
-            <label class="preview-label">Preview:</label>
-            <div class="preview" id="gradientPreview"></div>
-        </div>
-        
-        <div>
-            <label class="preview-label">CSS Code:</label>
-            <div class="code-output" id="cssCode">
-                /* CSS code will appear here */
-            </div>
-        </div>
-        
-        <div class="examples">
-            <h3>Examples:</h3>
-            <ul>
-                <li><code>red, blue</code> - Two color gradient</li>
-                <li><code>#ff0000 #00ff00 #0000ff</code> - Three color gradient</li>
-                <li><code>purple orange</code> - Named colors</li>
-                <li><code>rgba(255,0,0,0.5) rgba(0,255,0,0.5)</code> - Colors with transparency</li>
-            </ul>
-        </div>
-    </div>
-    
-    <footer>
-        Try different color schemes and combinations!
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/tinycolor2@1.4.2/tinycolor.min.js"></script>
-    <script src="file.js"></script>
+
+<input type="text" id="colorInput" placeholder="Enter colors (English, Spanish, Portuguese, hex, rgb, etc.)">
+<div class="buttons">
+    <button id="linearBtn" class="active">Linear</button>
+    <button id="radialBtn">Radial</button>
+    <button id="conicBtn">Conic</button>
+    <button id="diamondBtn">Diamond</button>
+    <button id="reflectedBtn">Reflected</button>
+</div>
+
+<div id="gradientPreview"></div>
+<pre id="cssCode">/* CSS code will appear here */</pre>
+
+<script src="script.js"></script>
 </body>
 </html>
