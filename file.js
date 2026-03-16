@@ -7,7 +7,7 @@ function normalizeColorName(str) {
         .trim();
 }
 
-// Small dictionary for common Spanish/Portuguese -> English
+// Minimal dictionary for Spanish/Portuguese -> English
 const colorDict = {
     "preto":"black","blanco":"white","branco":"white",
     "rojo":"red","vermelho":"red","azul":"blue","verde":"green",
@@ -15,20 +15,13 @@ const colorDict = {
     "marron":"brown","marrom":"brown","gris":"gray","cinza":"gray"
 };
 
-// Checks if a string is a valid CSS color
-function isValidColor(str) {
-    const s = new Option().style;
-    s.color = str;
-    return s.color !== '';
-}
-
+// Translate colors, fallback to original if not in dictionary
 function translateColor(input) {
     return input
         .split(/[\s,]+/)
         .map(color => {
             const normalized = normalizeColorName(color);
-            const translated = colorDict[normalized] || color;
-            return isValidColor(translated) ? translated : '#000'; // fallback black
+            return colorDict[normalized] || color; // browser will handle CSS color
         })
         .join(', ');
 }
@@ -46,10 +39,12 @@ const reflectedBtn = document.getElementById('reflectedBtn');
 
 let currentScheme = 'linear';
 
+// Button click events
 [linearBtn, radialBtn, conicBtn, diamondBtn, reflectedBtn].forEach(btn => {
     btn.addEventListener('click', () => setActiveScheme(btn.id.replace('Btn','').toLowerCase()));
 });
 
+// Input event
 colorInput.addEventListener('input', updateGradient);
 
 function setActiveScheme(scheme) {
@@ -94,6 +89,6 @@ function updateGradient() {
     document.body.style.background = gradientCSS;
 }
 
-// Initialize example
+// Initialize with example
 colorInput.value = 'rojo azul verde';
 updateGradient();
