@@ -1,4 +1,129 @@
-// ---------------- Universal Color Parser ----------------
+const ptToCssColors = {
+    "preto": "black",
+    "branco": "white",
+    "vermelho": "red",
+    "azul": "blue",
+    "verde": "green",
+    "amarelo": "yellow",
+    "roxo": "purple",
+    "rosa": "pink",
+    "laranja": "orange",
+    "marrom": "brown",
+    "cinza": "gray",
+    "cinzento": "gray",
+    "forest": "forestgreen",
+    "Bloo": "dodgerblue",
+    "Pourple":"#C7A0CB",
+    "slate":"#708090",
+    "ginger":"#e75304",
+    "verdant":"#226C3B",
+    "cream":"#FFFDD0",
+    "marigold":"#EAA221",
+    "sunglow":"#FFCC33",
+    "tangerine":"#F28500",
+    "vermilion":"#E34234",
+    "scarlet":"#FF2400",
+    "mahogany":"#C04000",
+    "chestnut":"#954535",
+    "sepia":"#704214",
+    "gunmetal":"#2C3539",
+
+    "azul claro": "lightblue",
+    "verde claro": "lightgreen",
+    "cinza claro": "lightgray",
+    "rosa claro": "lightpink",
+    "lightred": "#FF474c",
+    "lightpurple":"#DAB1DA",
+    "lightorange":"#FFA756",
+    "laranja claro":"#FFA756",
+    "roxo claro":"#DAB1DA",
+    "vermelho claro":"#FF474c",
+    "amarelo claro": "lightyellow",
+    "ciano claro": "lightcyan",
+    "lightlime":"#b9ff66",
+    "limão claro": "#b9ff66",
+    "lightmagenta": "#FF80FF",
+    "lightbrown": "#bc9e82",
+
+
+    "azul escuro": "darkblue",
+    "verde escuro": "darkgreen",
+    "cinza escuro": "darkgray",
+    "vermelho escuro": "darkred",
+    "roxo escuro": "#341539",
+    "darkpurple": "#341539",
+    "darkorange":"#C76E00",
+    "laranja claro":"#C76E00",
+    "darkyellow":"#BA8E23",
+    "amarelo escuro":"#BA8E23",
+    "ciano escuro":"#008B8B",
+    "darkcyan":"#008B8B",
+    "darkpink":"#C11C84",
+    "rosa escuro":"#C11C84",
+    "limao escuro":"#84B701",
+    "limao escuro":"#84B701",
+    "darklime":"#84B701",
+    "magenta escuro":"#8B008B",
+    "darkmagenta":"#8B008B",
+    "darkbrown": "#5C4033",
+
+
+    "agua": "aqua",
+    "água": "aqua",
+    "ciano": "cyan",
+    "magenta": "magenta",
+    "rosa": "#FF007F",
+    "rose": "#FF007F",
+    "fucsia": "fuchsia",
+    "fúcsia": "fuchsia",
+    "lima": "lime",
+    "oliva": "olive",
+    "navy": "navy",
+    "teal": "teal",
+    "marinho": "navy",
+    "turquesa": "turquoise",
+    "violeta": "violet",
+    "indigo": "indigo",
+    "índigo": "indigo",
+    "ouro": "gold",
+    "dourado": "gold",
+    "prata": "silver",
+    "bege": "beige",
+    "coral": "coral",
+    "salmao": "salmon",
+    "salmão": "salmon",
+    "salmao claro": "lightsalmon",
+    "chocolate": "chocolate",
+    "ameixa": "plum",
+    "orquidea": "orchid",
+    "orquídea": "orchid",
+    "ceu": "skyblue",
+    "céu": "skyblue",
+    "azul ceu": "skyblue",
+    "azul céu": "skyblue",
+    "pervinca": "#CCCCFF",
+    "periwinkle": "#CCCCFF",
+    "cinza medio": "darkgray",
+    "cinza médio": "darkgray",
+    "cinza chumbo": "dimgray",
+    "amber": "#FFBF00",
+    "âmbar": "#FFBF00",
+    "ambar": "#FFBF00",
+    "peach": "#FFD3AC",
+    "pessego":"#FFD3AC",
+    "pêssego":"#FFD3AC",
+    "transparente": "transparent",
+    "mintgreen": "#00FF7F",
+    "cerulean": "#2a52be",
+    "mint": "#98FB98",
+    "menta": "#98FB98",
+    "bronze": "#CD7F32",
+    "platina": "#E5E4E2",
+    "platinum": "#E5E4E2",
+    "burgundy": "#800020",
+    "borgonha": "#800020"
+};
+
 function normalizeColorName(str) {
     return str
         .toLowerCase()
@@ -7,88 +132,107 @@ function normalizeColorName(str) {
         .trim();
 }
 
-// Minimal dictionary for Spanish/Portuguese -> English
-const colorDict = {
-    "preto":"black","blanco":"white","branco":"white",
-    "rojo":"red","vermelho":"red","azul":"blue","verde":"green",
-    "amarillo":"yellow","amarelo":"yellow","rosa":"pink",
-    "marron":"brown","marrom":"brown","gris":"gray","cinza":"gray"
-};
-
-// Translate colors, fallback to original if not in dictionary
-function translateColor(input) {
+function translatePortugueseColors(input) {
     return input
         .split(/[\s,]+/)
         .map(color => {
             const normalized = normalizeColorName(color);
-            return colorDict[normalized] || color; // browser will handle CSS color
+            return ptToCssColors[normalized] || color;
         })
-        .join(', ');
+        .join(", ");
 }
 
-// ---------------- Gradient Generator ----------------
+// ===== SEU CÓDIGO ORIGINAL (INALTERADO) =====
 const colorInput = document.getElementById('colorInput');
 const gradientPreview = document.getElementById('gradientPreview');
 const cssCode = document.getElementById('cssCode');
-
+// Get all scheme buttons
 const linearBtn = document.getElementById('linearBtn');
 const radialBtn = document.getElementById('radialBtn');
 const conicBtn = document.getElementById('conicBtn');
 const diamondBtn = document.getElementById('diamondBtn');
 const reflectedBtn = document.getElementById('reflectedBtn');
 
+// Store current scheme
 let currentScheme = 'linear';
 
-// Button click events
-[linearBtn, radialBtn, conicBtn, diamondBtn, reflectedBtn].forEach(btn => {
-    btn.addEventListener('click', () => setActiveScheme(btn.id.replace('Btn','').toLowerCase()));
-});
+// Add event listeners to buttons
+linearBtn.addEventListener('click', () => setActiveScheme('linear'));
+radialBtn.addEventListener('click', () => setActiveScheme('radial'));
+conicBtn.addEventListener('click', () => setActiveScheme('conic'));
+diamondBtn.addEventListener('click', () => setActiveScheme('diamond'));
+reflectedBtn.addEventListener('click', () => setActiveScheme('reflected'));
 
-// Input event
+// Update gradient on input
 colorInput.addEventListener('input', updateGradient);
 
+// Function to set active scheme
 function setActiveScheme(scheme) {
     currentScheme = scheme;
-    [linearBtn, radialBtn, conicBtn, diamondBtn, reflectedBtn].forEach(b => b.classList.remove('active'));
-    document.getElementById(scheme + 'Btn').classList.add('active');
+
+    const buttons = [linearBtn, radialBtn, conicBtn, diamondBtn, reflectedBtn];
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    switch (scheme) {
+        case 'linear': linearBtn.classList.add('active'); break;
+        case 'radial': radialBtn.classList.add('active'); break;
+        case 'conic': conicBtn.classList.add('active'); break;
+        case 'diamond': diamondBtn.classList.add('active'); break;
+        case 'reflected': reflectedBtn.classList.add('active'); break;
+    }
+
     updateGradient();
 }
 
+// Function to update gradient based on input and selected scheme
 function updateGradient() {
-    const inputColors = translateColor(colorInput.value.trim());
-    const colors = inputColors.split(/[\s,]+/).filter(c => c);
+    const value = translatePortugueseColors(colorInput.value.trim()); // ← ÚNICA LINHA USANDO O CÓDIGO NOVO
+    const colors = value.split(/[\s,]+/).filter(c => c);
 
-    if(colors.length === 0){
+    if (colors.length === 0) {
         gradientPreview.style.background = '';
         cssCode.textContent = '/* Enter colors to see the gradient */';
-        document.body.style.background = '';
+        document.body.style.background = 'linear-gradient(to right, #ff7e5f, #feb47b)';
         return;
     }
 
     let gradientCSS = '';
 
-    if(colors.length === 1){
+    if (colors.length === 1) {
         gradientPreview.style.background = colors[0];
         gradientCSS = `background: ${colors[0]};`;
     } else {
-        switch(currentScheme){
-            case 'linear': gradientCSS = `linear-gradient(to right, ${colors.join(', ')})`; break;
-            case 'radial': gradientCSS = `radial-gradient(circle, ${colors.join(', ')})`; break;
-            case 'conic': gradientCSS = `conic-gradient(from 90deg, ${colors.join(', ')})`; break;
-            case 'diamond': gradientCSS = `linear-gradient(45deg, ${colors.join(', ')})`; break;
-            case 'reflected': 
+        switch (currentScheme) {
+            case 'linear':
+                gradientCSS = `linear-gradient(to right, ${colors.join(', ')})`;
+                break;
+            case 'radial':
+                gradientCSS = `radial-gradient(circle, ${colors.join(', ')})`;
+                break;
+            case 'conic':
+                gradientCSS = `conic-gradient(from 90deg, ${colors.join(', ')})`;
+                break;
+            case 'diamond':
+                gradientCSS = `linear-gradient(45deg, ${colors.join(', ')})`;
+                break;
+            case 'reflected':
                 const reflectedColors = [...colors, ...colors.slice().reverse()];
-                gradientCSS = `linear-gradient(to right, ${reflectedColors.join(', ')})`; 
+                gradientCSS = `linear-gradient(to right, ${reflectedColors.join(', ')})`;
                 break;
         }
+
         gradientPreview.style.background = gradientCSS;
         gradientCSS = `background: ${gradientCSS};`;
     }
 
     cssCode.textContent = gradientCSS;
-    document.body.style.background = gradientCSS;
+
+    if (colors.length > 1) {
+        document.body.style.background = gradientCSS;
+    } else {
+        document.body.style.background = colors[0];
+    }
 }
 
 // Initialize with example
-colorInput.value = 'rojo azul verde';
-updateGradient();
+colorInput.value = 'vermelho azul verde';
