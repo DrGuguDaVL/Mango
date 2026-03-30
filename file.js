@@ -45,7 +45,6 @@ const ptToCssColors = {
     "lightmagenta": "#FF80FF",
     "lightbrown": "#bc9e82",
 
-
     "azul escuro": "darkblue",
     "verde escuro": "darkgreen",
     "cinza escuro": "darkgray",
@@ -66,10 +65,12 @@ const ptToCssColors = {
     "magenta escuro":"#8B008B",
     "darkmagenta":"#8B008B",
     "darkbrown": "#5C4033",
-
+    
 
     "agua": "aqua",
     "água": "aqua",
+    "ultramarine":"#4166F5",
+    "capri": "#00BFFF",
     "ciano": "cyan",
     "magenta": "magenta",
     "rosa": "#FF007F",
