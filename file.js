@@ -121,7 +121,9 @@ const ptToCssColors = {
     "platina": "#E5E4E2",
     "platinum": "#E5E4E2",
     "burgundy": "#800020",
-    "borgonha": "#800020"
+    "borgonha": "#800020",
+    "bordo": "maroon",
+    "bordô": "maroon"
 };
 
 function normalizeColorName(str) {
