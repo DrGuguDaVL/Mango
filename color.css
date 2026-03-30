@@ -1,0 +1,78 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: background 0.5s ease;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        #colorInput {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+
+        .scheme-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .scheme-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #eee;
+        }
+
+        .scheme-btn.active {
+            background: #4a90e2;
+            color: white;
+        }
+
+        .preview {
+            height: 150px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .code-output {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+        }
