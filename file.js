@@ -27,7 +27,10 @@ const ptToCssColors = {
     "chestnut":"#954535",
     "sepia":"#704214",
     "gunmetal":"#2C3539",
-
+    "bubblegum":"#ff0081",
+    "ochre":"#CB9D06",
+    "bordeaux":"#7B1B38",
+    "ender":"#1C542D",
     "azul claro": "lightblue",
     "verde claro": "lightgreen",
     "cinza claro": "lightgray",
