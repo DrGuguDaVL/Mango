@@ -38,6 +38,7 @@ const ptToCssColors = {
     "charcoal":"#36454F",
     "bordeaux":"#7B1B38",
     "ruby":"#E0115F",
+    "deepblue":"#040273",
     "ender":"#1C542D",
     "azul claro": "lightblue",
     "verde claro": "lightgreen",
