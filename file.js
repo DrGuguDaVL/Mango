@@ -36,6 +36,7 @@ const ptToCssColors = {
     "ochre":"#CB9D06",
     "ebony":"#3C2005",
     "charcoal":"#36454F",
+    "sapphire":"#0F52BA",
     "bordeaux":"#7B1B38",
     "ruby":"#E0115F",
     "deepblue":"#040273",
