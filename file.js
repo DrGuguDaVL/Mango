@@ -48,6 +48,7 @@ const ptToCssColors = {
     "sand":"#CBBD93",
     "mocha":"#6D3B07",
     "lemonade":"#f8ff80",
+    "sky":"skyblue",
     "iceblue":"#D3F5F5",
     "ice":"#D3F5F5",
     "taupe":"#54463A",
