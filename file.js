@@ -15,8 +15,6 @@ const ptToCssColors = {
 
     // Custom cores nomeadas
     "forest": "forestgreen",
-    "bloo": "dodgerblue",
-    "pourple": "#C7A0CB",
     "slate": "#708090",
     "ginger": "#e75304",
     "verdant": "#226C3B",
@@ -54,7 +52,8 @@ const ptToCssColors = {
     "seagreen": "#2E8B57",
     "peagreen": "#8EAB12",
     "pea": "#8EAB12",
-    "azure": "#007FFF",
+    "azure": "#007FFF",        // strong blue
+    "azure pale": "#F0FFFF",   // original CSS
     "mustard": "#FFCE1B",
     "rust": "#B7410E",
     "lilac": "#A47DAB",
