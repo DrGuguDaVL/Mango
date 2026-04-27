@@ -53,7 +53,7 @@ const ptToCssColors = {
     "peagreen": "#8EAB12",
     "pea": "#8EAB12",
     "azure": "#007FFF",        // strong blue
-    "azure pale": "#F0FFFF",   // original CSS
+    "azurepale": "#F0FFFF",   // original CSS
     "mustard": "#FFCE1B",
     "rust": "#B7410E",
     "lilac": "#A47DAB",
