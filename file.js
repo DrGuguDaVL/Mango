@@ -40,6 +40,8 @@ const ptToCssColors = {
     "sapphire": "#0F52BA",
     "grape": "#6F2DA8",
     "bordeaux": "#7B1B38",
+    "bluegray":"#7393B3",
+    "bluegreen":"#00CEC8",
     "pewter": "#909EAE",
     "licorice": "#1B1212",
     "denim": "#6F8FAF",
