@@ -7,11 +7,13 @@ const ptToCssColors = {
     "verde": "green",
     "amarelo": "yellow",
     "roxo": "purple",
-    "rosa": "#FF007F",
+    "rose": "#FF007F",
     "laranja": "orange",
     "marrom": "brown",
     "cinza": "gray",
     "cinzento": "gray",
+    "violet":"#7F00FF",
+    "paleviolet":"violet",
 
     // Custom cores nomeadas
     "forest": "forestgreen",
